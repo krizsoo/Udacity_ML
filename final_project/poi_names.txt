@@ -25,9 +25,9 @@ http://usatoday30.usatoday.com/money/industries/energy/2005-12-28-enron-particip
 (n) Fastow, Lea
 (n) Fastow, Andrew
 (y) Delainey, David
+(n) Lawyer, Larry
 (n) Glisan, Ben
 (n) Richter, Jeffrey
-(n) Lawyer, Larry
 (n) Belden, Timothy
 (n) Kopper, Michael
 (n) Duncan, David
