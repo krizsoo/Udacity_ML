@@ -20,13 +20,20 @@ import pickle
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
 counter = 0
+total = 0
 for values in enron_data:
-    if enron_data[values]["email_address"]!='NaN':
+    total+=1
+    if enron_data[values]["poi"]==True:
         counter+=1
 
-print counter
+percent = counter/total*100
+
+print counter, total, percent
+print len(enron_data)
 print enron_data["PRENTICE JAMES"]["total_stock_value"]
 print enron_data["COLWELL WESLEY"]["from_this_person_to_poi"]
 print enron_data["SKILLING JEFFREY K"]["total_payments"]
 print enron_data["LAY KENNETH L"]["total_payments"]
+array = enron_data.items()
+print array[0][1].items()
 #print enron_data["FASTOW ANDREW"]["total_payments"]
