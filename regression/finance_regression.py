@@ -27,7 +27,7 @@ target, features = targetFeatureSplit( data )
 
 ### training-testing split needed in regression, just like classification
 from sklearn.cross_validation import train_test_split
-feature_train, feature_test, target_train, target_test = train_test_split(features, target, test_size=0.5, random_state=42)
+feature_train, feature_test, target_train, target_test = train_test_split(features, target, test_size=0.2, random_state=42)
 train_color = "b"
 test_color = "r"
 
@@ -40,7 +40,8 @@ test_color = "r"
 from sklearn.linear_model import LinearRegression
 reg = LinearRegression()
 reg.fit(feature_train, target_train)
-print reg.coef_, reg.intercept_, reg.score(target_test)
+predictions = reg.predict(feature_test)
+print reg.coef_, reg.intercept_, reg.score(feature_test, target_test)
 
 
 
@@ -64,9 +65,12 @@ plt.scatter(feature_test[0], target_test[0], color=train_color, label="train")
 
 ### draw the regression line, once it's coded
 try:
-    plt.plot( feature_test, reg.predict(feature_test) )
+    plt.plot( feature_test, reg.predict(feature_test), color="r" )
 except NameError:
     pass
+reg.fit(feature_test, target_test)
+plt.plot(feature_train, reg.predict(feature_train), color="b")
+print reg.coef_
 plt.xlabel(features_list[1])
 plt.ylabel(features_list[0])
 plt.legend()
