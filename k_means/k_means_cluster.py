@@ -54,6 +54,14 @@ features_list = [poi, feature_1, feature_2]
 data = featureFormat(data_dict, features_list )
 poi, finance_features = targetFeatureSplit( data )
 
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+data_2 = [[-1, 2], [-0.5, 6], [0, 10], [1, 18]]
+scaler.fit(data)
+rescaled = scaler.transform(data)
+#print(rescaled)
+#print(data)
+print(scaler.transform([[1,200000,1000000]]))
 
 ### in the "clustering with 3 features" part of the mini-project,
 ### you'll want to change this line to
@@ -74,7 +82,7 @@ pred = reg.predict(data)
 counter_min = 10000000000000000
 counter_max = 0
 for i in data_dict:
-    print data_dict[i]["salary"]
+    #print data_dict[i]["salary"]
     if data_dict[i]["salary"]> counter_max and data_dict[i]["salary"] != "NaN":
         counter_max = data_dict[i]["salary"]
     if data_dict[i]["salary"] < counter_min and data_dict[i]["salary"] != "NaN":
