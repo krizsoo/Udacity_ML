@@ -59,7 +59,7 @@ scaler = MinMaxScaler()
 data_2 = [[-1, 2], [-0.5, 6], [0, 10], [1, 18]]
 scaler.fit(data)
 rescaled = scaler.transform(data)
-#print(rescaled)
+print(feature_1)#print(rescaled)
 #print(data)
 print(scaler.transform([[1,200000,1000000]]))
 
